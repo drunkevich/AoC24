@@ -1,9 +1,11 @@
 package advent
 package day1
 
-object Day01pt2 extends App {
+import util.Advent
 
-  val digitStrings = Seq(
+object Day01pt2 extends Advent("day01_pt2") {
+
+  def digitStrings = Seq(
     "one" -> 1,
     "two" -> 2,
     "three" -> 3,
@@ -36,17 +38,11 @@ object Day01pt2 extends App {
     }
   }
 
-  val sum = input.full.trim
-    .split('\n')
-    .map(line => {
-      val digits = findDigits(line)
-      val firstDigit = digits.head.toString
-      val lastDigit = digits.last.toString
-      val sum = (firstDigit + lastDigit)
-      val result = sum.toString.toInt
-      println(result)
-      result
-    })
-    .sum
-  println(sum)
+  override def evalSum(line: String) = {
+    val digits = findDigits(line)
+    val firstDigit = digits.head.toString
+    val lastDigit = digits.last.toString
+    val sum = (firstDigit + lastDigit)
+    sum.toString.toLong
+  }
 }
