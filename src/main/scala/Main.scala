@@ -1,14 +1,14 @@
 package advent
 
-import day1.*
-import day2.*
-import day3.*
-import day4.*
-import day5.*
-import day6.*
-import day7.*
-import day8.*
-import day9.*
+import day01.*
+import day02.*
+import day03.*
+import day04.*
+import day05.*
+import day06.*
+import day07.*
+import day08.*
+import day09.*
 
 object Main extends App {
   Day01pt1

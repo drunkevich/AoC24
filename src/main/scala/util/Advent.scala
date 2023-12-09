@@ -7,13 +7,15 @@ import scala.jdk.CollectionConverters.*
 
 abstract class Advent(dir: String) extends App {
   def evalSum(line: String): Long = ???
-  def eval(lines: Seq[String]): String = lines.map(evalSum).sum.toString
+  def eval(lines: Seq[String]): Any = lines.map(evalSum).sum.toString
 
   def expected(fileName: String): Option[String] =
     if fileName.contains("_")
     then Some(fileName.split("_")(1))
     else None
 
+  println()
+  println("day     : " + dir)
   Files
     .list(FileSystems.getDefault.getPath("src/main/resources/" + dir))
     .iterator()
@@ -23,9 +25,8 @@ abstract class Advent(dir: String) extends App {
       val source = Source.fromFile(path.toFile)
       val lines = source.getLines().toSeq
       source.close()
-      val result = eval(lines)
+      val result = eval(lines).toString
 
-      println()
       println("file    : " + path.getFileName)
       println("result  : " + result)
       expected(path.getFileName.toString).foreach(expected => {
