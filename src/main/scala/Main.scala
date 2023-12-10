@@ -9,6 +9,7 @@ import day06.*
 import day07.*
 import day08.*
 import day09.*
+import day10.*
 
 object Main extends App {
   Day01pt1
@@ -29,4 +30,6 @@ object Main extends App {
   Day08pt2
   Day09pt1
   Day09pt2
+  Day10pt1
+  Day10pt2
 }
