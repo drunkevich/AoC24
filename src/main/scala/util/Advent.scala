@@ -15,7 +15,7 @@ abstract class Advent(dir: String) extends App {
     else None
 
   println()
-  println("day     : " + dir)
+  println("DAY: " + dir)
   Files
     .list(FileSystems.getDefault.getPath("src/main/resources/" + dir))
     .iterator()
@@ -25,14 +25,19 @@ abstract class Advent(dir: String) extends App {
       val source = Source.fromFile(path.toFile)
       val lines = source.getLines().toSeq
       source.close()
-      val result = eval(lines).toString
 
-      println("file    : " + path.getFileName)
-      println("result  : " + result)
+      val t0 = System.nanoTime()
+      val result = eval(lines).toString
+      val t1 = System.nanoTime()
+
+      println("file        : " + path.getFileName)
+      println("result      : " + result)
       expected(path.getFileName.toString).foreach(expected => {
-        println("expected: " + expected)
+        println("expected    : " + expected)
         assert(result == expected)
       })
+      println("Elapsed time: " + (t1 - t0)/1000000 + "ms")
+      println()
     })
 
 }
