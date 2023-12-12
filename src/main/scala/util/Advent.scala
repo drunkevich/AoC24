@@ -41,3 +41,14 @@ abstract class Advent(dir: String) extends App {
     })
 
 }
+
+object Utils {
+
+  def time[R](name: String = "Elapsed time")(block: => R): R = {
+    val t0 = System.nanoTime()
+    val result = block // call-by-name
+    val t1 = System.nanoTime()
+    println(name+ ": " + (t1 - t0) / 1000000 + "ms")
+    result
+  }
+}
