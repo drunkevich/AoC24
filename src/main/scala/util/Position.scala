@@ -5,6 +5,8 @@ import scala.annotation.targetName
 
 case class Position(x: Int, y: Int) {
   def plus(direction: Direction): Position = Position(x + direction.dx, y + direction.dy)
+  
+  def minus(direction: Direction): Position = Position(x - direction.dx, y - direction.dy)
 
   @targetName("add")
   def +(other: Position): Position = Position(x + other.x, y + other.y)
