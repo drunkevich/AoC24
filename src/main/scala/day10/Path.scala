@@ -2,7 +2,7 @@ package advent
 package day10
 
 import scala.annotation.tailrec
-
+import util.*
 object Path {
 
   def calculate(map: Array[Array[Tile]]) = {
@@ -63,28 +63,6 @@ object Parser {
     case 'F' => CornerSE
     case '7' => CornerSW
   }
-}
-
-case class Position(x: Int, y: Int) {
-  def plus(direction: Direction): Position =
-    Position(x + direction.dx, y + direction.dy)
-}
-case class Direction(dx: Int, dy: Int)
-object N extends Direction(0, -1) {
-  override def toString: String = "N"
-}
-object S extends Direction(0, 1) {
-  override def toString: String = "S"
-}
-object E extends Direction(1, 0) {
-  override def toString: String = "E"
-}
-object W extends Direction(-1, 0) {
-  override def toString: String = "W"
-}
-object Direction {
-  def fromTo(from: Position, to: Position): Direction =
-    Direction(to.x - from.x, to.y - from.y)
 }
 
 sealed trait Tile

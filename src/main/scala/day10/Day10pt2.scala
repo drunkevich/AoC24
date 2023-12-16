@@ -1,12 +1,7 @@
 package advent
 package day10
 
-import util.Advent
-import day09.Util.addRow
-
-import java.nio.channels.Pipe
-import scala.::
-import scala.annotation.tailrec
+import util.*
 
 object Day10pt2 extends Advent("day10_pt2") {
 

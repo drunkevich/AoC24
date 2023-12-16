@@ -1,8 +1,7 @@
 package advent
 package day14
 
-import util.Advent
-
+import util.*
 import day14.Rocks.*
 
 object Day14pt1 extends Advent("day14_pt1") {
@@ -11,7 +10,7 @@ object Day14pt1 extends Advent("day14_pt1") {
     val roundRocks = findRocks(lines, 'O')
     val squareRocks = findRocks(lines, '#')
 
-    val movedRocks = moveTillTheEnd(North, roundRocks, squareRocks)(Point(lines.head.length, lines.size))
+    val movedRocks = moveTillTheEnd(N, roundRocks, squareRocks)(Position(lines.head.length, lines.size))
 
     val h = lines.size
     movedRocks

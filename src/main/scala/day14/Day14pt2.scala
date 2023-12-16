@@ -1,8 +1,7 @@
 package advent
 package day14
 
-import util.Advent
-
+import util.*
 import day14.Rocks.*
 
 object Day14pt2 extends Advent("day14_pt2") {
@@ -10,7 +9,7 @@ object Day14pt2 extends Advent("day14_pt2") {
   override def eval(lines: Seq[String]) = {
     val roundRocks = findRocks(lines, 'O')
     val squareRocks = findRocks(lines, '#')
-    implicit val box: Point = Point(lines.head.length, lines.size)
+    implicit val box: Position = Position(lines.head.length, lines.size)
 
     val cycles = LazyList.iterate(roundRocks)(cycle(_, squareRocks))
 
