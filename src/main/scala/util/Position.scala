@@ -2,6 +2,7 @@ package advent
 package util
 
 import scala.annotation.targetName
+import scala.compiletime.ops.string.Length
 
 case class Position(x: Int, y: Int) {
   def plus(direction: Direction): Position = Position(x + direction.dx, y + direction.dy)
@@ -15,7 +16,10 @@ case class Position(x: Int, y: Int) {
 }
 
 type Dirr = 0 | 1 | -1
-case class Direction(dx: Dirr, dy: Dirr)
+case class Direction(dx: Dirr, dy: Dirr) {
+  @targetName("multiply")
+  def *(length: Int): Position = Position(dx * length, dy * length)
+}
 object N extends Direction(0, -1) {
   override def toString: String = "N"
 }
