@@ -11,6 +11,10 @@ case class Position(x: Int, y: Int) {
 
   @targetName("add")
   def +(other: Position): Position = Position(x + other.x, y + other.y)
+  @targetName("subtract")
+  def -(other: Position): Position = Position(x - other.x, y - other.y)
+  @targetName("vectorMultiply")
+  def *(other: Position): Position = Position(x - other.x, y - other.y)
 
   def in(box: Position): Boolean = x >= 0 && y >= 0 && x < box.x && y < box.y
 }
